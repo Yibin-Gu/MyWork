@@ -1,1 +1,3 @@
-#Project Despription
+# Project Despription
+  During this quarter, we were tasked with creating a game that includes elements of speech recognition, gesture recognition, and localization/position detection. We decided to implement a Red Light-Green Light based game which would include questions during the red lights and a pose detection at the end of the game.
+  We used a Raspberry Pi Zero W and a laptop as the controlling entities. The laptop acted as a master to the Pi using TCP communication. The Pi ran the sensors measuring player distances and the led output of the signal (red or green). The laptop ran the main game prompts, voice recognition, and gesture recognition.
