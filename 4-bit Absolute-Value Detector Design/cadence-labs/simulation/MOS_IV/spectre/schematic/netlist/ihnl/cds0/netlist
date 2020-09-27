@@ -1,0 +1,14 @@
+
+// Library name: ee115c
+// Cell name: MOS_IV
+// View name: schematic
+NM3 (net014 net012 0 0) gpdk090_nmos1v w=(480n) l=100n as=134.4f ad=134.4f \
+        ps=1.52u pd=1.52u m=(1)*(1) simM=(1)*(1)
+NM2 (net017 net012 0 0) gpdk090_nmos1v w=(480n) l=100n as=134.4f ad=134.4f \
+        ps=1.52u pd=1.52u m=(1)*(1) simM=(1)*(1)
+PM2 (net014 0 net011 net011) gpdk090_pmos1v w=(240n) l=100n as=67.2f \
+        ad=67.2f ps=1.04u pd=1.04u m=(1)*(1) simM=(1)*(1)
+PM0 (net017 net012 net011 net011) gpdk090_pmos1v w=(240n) l=100n as=67.2f \
+        ad=67.2f ps=1.04u pd=1.04u m=(1)*(1) simM=(1)*(1)
+V1 (net012 net016) vsource dc=Vin type=dc
+V0 (net011 0) vsource dc=1 type=dc
