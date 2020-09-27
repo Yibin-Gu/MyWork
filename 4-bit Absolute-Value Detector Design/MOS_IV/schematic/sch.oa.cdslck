@@ -1,0 +1,16 @@
+#
+# Edit Lock-Stake file. CAUTION: Please do not change.
+#
+# Information about current Edit Lock Owner.
+#
+LockStakeVersion               1.1
+LoginName                      yibing
+HostName                       eeapps03.seas.ucla.edu
+ProcessIdentifier              76286
+ProcessCreationTime_UTC        1587508257
+ProcessCreationTime_Readable   Tue Apr 21 15:30:57 2020 PDT
+AppIdentifier                  OA File System Design Manager
+OSType                         unix
+ReasonForPlacingEditLock       OpenAccess edit lock
+FilePathUsedToEditLock         /w/home.06/ee/ugrad/yibing/ee115c/ee115c/MOS_IV/schematic/sch.oa.cdslck.dirlck
+TimeEditLocked                 Tue Apr 21 15:36:29 2020 PDT

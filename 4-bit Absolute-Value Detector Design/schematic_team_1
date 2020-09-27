@@ -1,0 +1,89 @@
+// Generated for: spectre
+// Generated on: Jun  1 23:56:19 2020
+// Design library name: ee115c
+// Design cell name: Abs_Value_Detector
+// Design view name: schematic
+simulator lang=spectre
+global 0
+include "/w/apps2/public.2/tech/cadence/90nm/gpdk090_v4.6/libs.oa22/gpdk090/../../models/spectre/gpdk090.scs" section=NN
+
+// Library name: ee115c
+// Cell name: unit_INV
+// View name: schematic
+subckt unit_INV GND VDD in out
+    NM0 (out in GND GND) gpdk090_nmos1v w=(430n) l=100n as=120.4f \
+        ad=120.4f ps=1.42u pd=1.42u m=(1)*(1) simM=(1)*(1)
+    PM0 (out in VDD VDD) gpdk090_pmos1v w=(650n) l=100n as=182f ad=182f \
+        ps=1.86u pd=1.86u m=(1)*(1) simM=(1)*(1)
+ends unit_INV
+// End of subcircuit definition.
+
+// Library name: ee115c
+// Cell name: proj_mux
+// View name: schematic
+subckt proj_mux A B GND S VDD out
+    PM2 (B net16 out VDD) gpdk090_pmos1v w=(650n) l=100n as=182f ad=182f \
+        ps=1.86u pd=1.86u m=(1)*(1) simM=(1)*(1)
+    PM0 (A S out VDD) gpdk090_pmos1v w=(650n) l=100n as=182f ad=182f \
+        ps=1.86u pd=1.86u m=(1)*(1) simM=(1)*(1)
+    NM0 (B S out GND) gpdk090_nmos1v w=(650n) l=100n as=182f ad=182f \
+        ps=1.86u pd=1.86u m=(1)*(1) simM=(1)*(1)
+    PM1 (A net16 out GND) gpdk090_nmos1v w=(650n) l=100n as=182f ad=182f \
+        ps=1.86u pd=1.86u m=(1)*(1) simM=(1)*(1)
+    I0 (GND VDD S net16) unit_INV
+ends proj_mux
+// End of subcircuit definition.
+
+// Library name: ee115c
+// Cell name: proj_Mirror_Adder_noInv
+// View name: schematic
+subckt proj_Mirror_Adder_noInv A B Cin Cout_bar GND VDD
+    NM4 (Cout_bar Cin net17 net17) gpdk090_nmos1v w=(860n) l=100n \
+        as=240.8f ad=240.8f ps=2.28u pd=2.28u m=(1)*(1) simM=(1)*(1)
+    NM3 (Cout_bar A net27 net27) gpdk090_nmos1v w=(860n) l=100n as=240.8f \
+        ad=240.8f ps=2.28u pd=2.28u m=(1)*(1) simM=(1)*(1)
+    NM2 (net27 B GND GND) gpdk090_nmos1v w=(860n) l=100n as=240.8f \
+        ad=240.8f ps=2.28u pd=2.28u m=(1)*(1) simM=(1)*(1)
+    NM1 (net17 B GND GND) gpdk090_nmos1v w=(860n) l=100n as=240.8f \
+        ad=240.8f ps=2.28u pd=2.28u m=(1)*(1) simM=(1)*(1)
+    NM0 (net17 A GND GND) gpdk090_nmos1v w=(860n) l=100n as=240.8f \
+        ad=240.8f ps=2.28u pd=2.28u m=(1)*(1) simM=(1)*(1)
+    PM4 (net29 B VDD VDD) gpdk090_pmos1v w=(2.6u) l=100n as=728f ad=728f \
+        ps=5.76u pd=5.76u m=(1)*(1) simM=(1)*(1)
+    PM3 (Cout_bar A net29 net29) gpdk090_pmos1v w=(2.6u) l=100n as=728f \
+        ad=728f ps=5.76u pd=5.76u m=(1)*(1) simM=(1)*(1)
+    PM2 (net21 A VDD VDD) gpdk090_pmos1v w=(1.3u) l=100n as=364f ad=364f \
+        ps=3.16u pd=3.16u m=(1)*(1) simM=(1)*(1)
+    PM1 (net21 B VDD VDD) gpdk090_pmos1v w=(1.3u) l=100n as=364f ad=364f \
+        ps=3.16u pd=3.16u m=(1)*(1) simM=(1)*(1)
+    PM0 (Cout_bar Cin net21 net21) gpdk090_pmos1v w=(1.3u) l=100n as=364f \
+        ad=364f ps=3.16u pd=3.16u m=(1)*(1) simM=(1)*(1)
+ends proj_Mirror_Adder_noInv
+// End of subcircuit definition.
+
+// Library name: ee115c
+// Cell name: Abs_Value_Detector
+// View name: schematic
+I11 (GND VDD X2 net36) unit_INV
+I8 (GND VDD X1 net37) unit_INV
+I7 (GND VDD X3 net38) unit_INV
+I6 (GND VDD net34 net39) unit_INV
+I5 (GND VDD net35 net40) unit_INV
+I0 (GND VDD X0 net41) unit_INV
+I10 (net36 X2 GND X3 VDD net31) proj_mux
+I9 (net37 X1 GND X3 VDD net32) proj_mux
+I1 (net41 X0 GND X3 VDD net33) proj_mux
+I4 (net31 T2 net39 OUT GND VDD) proj_Mirror_Adder_noInv
+I3 (net32 T1 net40 net34 GND VDD) proj_Mirror_Adder_noInv
+I2 (net33 T0 net38 net35 GND VDD) proj_Mirror_Adder_noInv
+simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=27 \
+    tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 maxnotes=5 maxwarns=5 \
+    digits=5 cols=80 pivrel=1e-3 sensfile="../psf/sens.output" \
+    checklimitdest=psf 
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts where=rawfile
+saveOptions options save=allpub
