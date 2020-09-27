@@ -7,5 +7,5 @@ use gate sizing and supply voltage scaling as variables. No registers (i.e. pipe
 This project was made during UCLA EE115C course and this folder includes all files that I used/created in **Cadence**
 
 #### For More Information
-- **see** [Requirment of this project](<
-- **see** [My short report of this project](<
+- **see** [Requirment of this project](<https://drive.google.com/file/d/1JjYlga307V2cBoTTVVn9f3RWGwtWygS-/view?usp=sharing>)
+- **see** [My short report of this project](<https://drive.google.com/file/d/11R10sx9ZHuVVFE0S6ftQY8t63kpT8rov/view?usp=sharing>)
