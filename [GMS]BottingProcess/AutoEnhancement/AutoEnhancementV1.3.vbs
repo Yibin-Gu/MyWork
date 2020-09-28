@@ -213,7 +213,7 @@ End Function
 //检查目标星数是否小于当前装备星数, 并且检查保护开启/关闭
 Function checkSafe(star, location, protect, locProtect)
     cur = getStarNum(location(0) + 50, location(1) + 60) - 1
-    starText = cur & "|" & starText
+            ***************************//this is the part that I just blocked, figure it out by yourself xD
     Form1.ListBox1.AddItem ("当前装备星数: " & cur)
     TracePrint "当前装备星数: " & cur
     Dim x, y
